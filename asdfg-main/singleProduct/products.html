@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Products</h1>
+    <div class="flexed-display">
+      <!-- Sidebar starts here -->
+      <div class="sidebar">
+        <h2>Sidebar</h2>
+        <div class="navigation">
+            <div class="search-bar">
+                <label for="search">Search</label>
+                <div class="search-input">
+                    <input
+                        type="text"
+                        class="type-s"
+                        placeholder="Search for items"
+                        v-model="searchInput"
+                    />
+                    <button
+                        type="submit"
+                        class="btn search-btn"
+                        @click="filterProducts()"
+                    >
+                        Search
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Sort -->
+            <div class="sort">
+                <label for="sort">Sort by Price</label>
+                <select name="sort" id="sort">
+                    <option value="lowest">Lowest</option>
+                    <option value="highest">Highest</option>
+                </select>
+            </div>
+            <h2>Categories</h2>
+          <div class="Categories">
+            <p>Pants</p>
+            <p>Golfer</p>
+            <p>Shirt</p>
+            <p>Jacket</p>
+            <p>Dress</p>
+          </div>
+        </div>
+        <!-- Sidebar ends here-->
+      </div>
+      <div class="products-body">
+        <div class="product-cards">
+          <div class="container">
+            <ul class="cards">
+              <li
+                class="card"
+                v-for="product in products"
+                :key="product.prodID"
+              >
+                <div>
+                  <div class="image-container">
+                    <img
+                      :src="product.prodUrl"
+                      :alt="product.prodName"
+                      class="card-image"
+                    />
+                  </div>
+                  <h3 class="card-title">{{ product.prodName }}</h3>
+                  <p class="card-price">R {{ product.price }}</p>
+                  <p class="card-category">{{ product.Category }}</p>
+                  <!-- Add rating display here -->
+                </div>
+                <div class="card-link-wrapper">
+                  <router-link
+                    class="text-black"
+                    id="view-more"
+                    :to="{
+                        name: 'product',
+                        params: { prodID: product.prodID },
+                        query: {
+                          prodName: product.prodName,
+                          price: product.price,
+                          Category: product.Category,
+                          prodUrl: product.prodUrl,
+                        }
+                      }"
+                    ><button class="view-more">View More</button>
+                  </router-link>
+
+                  <button
+                    class="add-to-cart-button"
+                    @click="addToCart(product)"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style scoped>
+        *{
+  font-family: 'Lato', sans-serif;
+font-family: 'PT Serif', serif;
+font-family: 'Raleway', sans-serif;
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital@1&family=PT+Serif:wght@700&family=Raleway&display=swap");
+      body {
+        background-color: #ffffff;
+        min-height: 100vh;
+      }
+      h1 {
+        margin-top: 8rem;
+        margin-left: 2rem;
+        color: #000000;
+      }
+      .flexed-display {
+        display: flex;
+        margin-top: 1.5rem;
+      }
+      .sidebar {
+        position: relative;
+        width: 20rem;
+        background-color: #fbfbfb;
+        padding: 20px;
+        height: 40rem;
+        margin-left: 2rem;
+        border-radius: 10px;
+        border: 5px solid black;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 1rem;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+        padding: 25px;
+        overflow-x: hidden;
+        list-style-type: none;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(300px, 1fr)
+        ); /* Create a grid with columns that adjust based on available space */
+        gap: 20px;
+      }
+
+      .card {
+        width: 100%;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+        border: 3px solid black;
+      }
+
+      .card-image {
+        margin: auto;
+        max-width: 100%;
+        height: 19rem;
+      }
+
+      .card-title {
+        font-size: 20px;
+      }
+
+      .card-price {
+        font-size: 18px;
+        margin-top: 5px;
+      }
+      .card-category {
+        font-size: 18px;
+      }
+
+      .card:hover {
+        transform: scaleX(1.1);
+      }
+
+      .card .card-title {
+        font-size: 20px;
+      }
+
+      .card .card-content {
+        margin: 20px 0;
+      }
+
+      .card .card-link-wrapper {
+        display: inline-block;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        background: var(--red);
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+
+      .card button:hover {
+        background-color: rgb(0, 0, 0);
+        color: #ffffff;
+      }
+
+      @media (min-width: 500px) {
+        .card {
+          flex-basis: calc(50% - 10px);
+        }
+      }
+
+      @media (min-width: 700px) {
+        .card {
+          flex-basis: calc(calc(100% / 3) - 20px);
+        }
+      }
+
+      @media (min-width: 300px) {
+        .card {
+          flex-basis: calc(25% - 30px);
+        }
+      }
+
+      .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content horizontally */
+        text-align: center; /* Center content text horizontally */
+        padding: 20px;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center; /* Center image horizontally */
+        align-items: center; /* Center image vertically */
+        margin-bottom: 10px;
+      }
+      .add-to-cart-button {
+        margin-left: 7px;
+      }
+      #view-more {
+        text-decoration: none;
+      }
+      .search-bar {
+    margin-bottom: 20px;
+}
+
+.search-input {
+    display: flex;
+}
+
+.search-input input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Sort Styles */
+.sort label,
+.categories h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sort select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Categories Styles */
+.categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories li {
+    margin-bottom: 5px;
+}
+
+.categories a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.categories a:hover {
+    color: #007bff;
+}
+    </style>
+  </body>
+</html>
