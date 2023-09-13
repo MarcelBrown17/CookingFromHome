@@ -80,6 +80,48 @@
         </div>
         <button type="submit" class="contact-button">Send</button>
       </form>
+      <div class="faq-container">
+        <div class="faq-row">
+            <div class="faq-box">
+                <h3>DISPATCH & DELIVERY</h3>
+                <p>How do I get free delivery on Envy Essentials orders?</p>
+                <p>What are Envy Essentials' delivery options?</p>
+                <p>Can my Envy Essentials order be dispatched internationally?</p>
+            </div>
+            <div class="faq-box">
+                <h3>RETURNS</h3>
+                <p>How do I return my Envy Essentials order?</p>
+                <p>What is Envy Essentials' returns policy?</p>
+                <p>Where is my refund?</p>
+            </div>
+            <div class="faq-box">
+                <h3>ENVY ESSENTIALS MEMBERSHIP</h3>
+                <p>What is Envy Essentials Membership?</p>
+                <p>How do I become an Envy Essentials Member?</p>
+                <p>How do I get the most out of NRC or NTC?</p>
+            </div>
+        </div>
+        <div class="faq-row">
+          <div class="faq-box">
+            <h3>ORDERS</h3>
+            <p>Where is my Envy Essentials order?</p>
+            <p>Can I change or cancel my Envy Essentials order?</p>
+            <p>What payment options can I use on Envy Essentials orders?</p>
+        </div>
+        <div class="faq-box">
+            <h3>PRODUCT INFO</h3>
+            <p>How do I get Envy Essentials' newest product releases?</p>
+            <p>How do I find the right size and fit for Envy Essentials products?</p>
+            <p>What is Envy Essentials' personalization policy?</p>
+            <p>Do Envy Essentials products have a warranty?</p>
+        </div>
+        <div class="faq-box">
+            <h3>CORPORATE</h3>
+            <p>Where can I get more info about Envy Essentials, Inc.?</p>
+            <p>Where is the Envy Essentials store closest to me?</p>
+        </div>
+        </div>
+    </div>
       <div class="contact-icon-container">
         <div class="contact-box">
           <i class="fas fa-shopping-cart"></i>
@@ -107,6 +149,40 @@
 
 
     <style scoped>
+      .faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem !important;
+        }
+
+        .faq-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .faq-box {
+            width: 30%;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 5px;
+            height: 60% !important;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 14px;
+        }
         #header{
             font-size: 55px !important;
             margin-top: 0px;
@@ -171,7 +247,7 @@ font-size: 15px;
         transition: background-color 0.3s;
         font-size: 20px;
         margin-top: 25px !important;
-        margin-bottom: 5rem !important;
+        margin-bottom: 3rem !important;
         width: 90px;
         margin: auto;
       }
@@ -223,15 +299,15 @@ font-size: 15px;
   }
 
   .form-group textarea { 
-    width: 55% !important;
-    margin: auto;
+    width: 50% !important;
+    margin: auto !important;
    
   }
   label { 
   /* display: none; */
   font-size: large
 !important;
-    margin-left:37px  !important;
+    margin-left:46px  !important;
   }
   #header{
     font-size: 40px!important;
@@ -240,6 +316,15 @@ font-size: 15px;
     display: flex !important;
   flex-direction: column !important;
   gap: 2rem;
+  }
+  .faq-row{
+    display: flex !important;
+  flex-direction: column !important;
+  gap: 2rem;
+  }
+  .faq-box{
+    margin: auto !important;
+    width: 70%;
   }
 }
     </style>
