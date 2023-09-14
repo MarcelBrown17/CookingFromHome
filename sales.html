@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Top sales this week</h2>
+      <ul class="cards">
+        <li class="card">
+          <div>
+            <div class="image-container">
+              <img
+                src="https://i.postimg.cc/Rhj0g1zn/ed4ae956086fac8e0cbf315cf140b34e.jpg"
+                alt="product.prodName"
+                class="card-image"
+              />
+            </div>
+            <h3 class="card-title">prodName</h3>
+            <p class="card-price">R price</p>
+            <p class="card-category">Category</p>
+            <!-- Add rating display here -->
+          </div>
+          <div class="card-link-wrapper">
+            <router-link class="text-black" id="view-more"
+              ><button class="view-more">View More</button>
+            </router-link>
+
+            <button class="add-to-cart-button" @click="addToCart(product)">
+              Add to Cart
+            </button>
+          </div>
+        </li>
+        <li class="card">
+          <div>
+            <div class="image-container">
+              <img
+                src="https://i.postimg.cc/Rhj0g1zn/ed4ae956086fac8e0cbf315cf140b34e.jpg"
+                alt="product.prodName"
+                class="card-image"
+              />
+            </div>
+            <h3 class="card-title">prodName</h3>
+            <p class="card-price">R price</p>
+            <p class="card-category">Category</p>
+            <!-- Add rating display here -->
+          </div>
+          <div class="card-link-wrapper">
+            <router-link class="text-black" id="view-more"
+              ><button class="view-more">View More</button>
+            </router-link>
+
+            <button class="add-to-cart-button" @click="addToCart(product)">
+              Add to Cart
+            </button>
+          </div>
+        </li>
+        <li class="card">
+          <div>
+            <div class="image-container">
+              <img
+                src="https://i.postimg.cc/Rhj0g1zn/ed4ae956086fac8e0cbf315cf140b34e.jpg"
+                alt="product.prodName"
+                class="card-image"
+              />
+            </div>
+            <h3 class="card-title">prodName</h3>
+            <p class="card-price">R price</p>
+            <p class="card-category">Category</p>
+            <!-- Add rating display here -->
+          </div>
+          <div class="card-link-wrapper">
+            <router-link class="text-black" id="view-more"
+              ><button class="view-more">View More</button>
+            </router-link>
+
+            <button class="add-to-cart-button" @click="addToCart(product)">
+              Add to Cart
+            </button>
+          </div>
+        </li>
+        <li class="card">
+          <div>
+            <div class="image-container">
+              <img
+                src="https://i.postimg.cc/Rhj0g1zn/ed4ae956086fac8e0cbf315cf140b34e.jpg"
+                alt="product.prodName"
+                class="card-image"
+              />
+            </div>
+            <h3 class="card-title">prodName</h3>
+            <p class="card-price">R price</p>
+            <p class="card-category">Category</p>
+            <!-- Add rating display here -->
+          </div>
+          <div class="card-link-wrapper">
+            <router-link class="text-black" id="view-more"
+              ><button class="view-more">View More</button>
+            </router-link>
+
+            <button class="add-to-cart-button" @click="addToCart(product)">
+              Add to Cart
+            </button>
+          </div>
+        </li>
+        <li class="card">
+          <div>
+            <div class="image-container">
+              <img
+                src="https://i.postimg.cc/Rhj0g1zn/ed4ae956086fac8e0cbf315cf140b34e.jpg"
+                alt="product.prodName"
+                class="card-image"
+              />
+            </div>
+            <h3 class="card-title">prodName</h3>
+            <p class="card-price">R price</p>
+            <p class="card-category">Category</p>
+            <!-- Add rating display here -->
+          </div>
+          <div class="card-link-wrapper">
+            <router-link class="text-black" id="view-more"
+              ><button class="view-more">View More</button>
+            </router-link>
+
+            <button class="add-to-cart-button" @click="addToCart(product)">
+              Add to Cart
+            </button>
+          </div>
+        </li>
+
+        <!-- Repeat this card structure for other products -->
+      </ul>
+    </div>
+
+    <style scoped>
+      body {
+        margin-top: 6rem;
+        font: 16px / 24px "Rubik", sans-serif;
+        color: var(--black);
+        margin: 50px 0;
+      }
+
+      .container {
+        max-width: 1400px;
+        padding: 0 10px;
+        margin: auto;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 1em;
+      }
+
+      .cards {
+        display: flex;
+        padding: 25px 0px;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 100%;
+        padding: 20px;
+        background: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 30%);
+        scroll-snap-align: start;
+        transition: all 0.2s;
+        border: 5px solid black;
+      }
+
+      .card .card-link-wrapper {
+        display: flex !important;
+        flex-direction: row !important;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        background: var(--red);
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+      .card button {
+        border-radius: 5px !important;
+        padding: 6px !important;
+        color: #ffffff;
+        background-color: rgb(0, 0, 0);
+      }
+      .card button:hover {
+        background-color: rgb(255, 255, 255);
+        color: #000000;
+        border: 3px solid black;
+      }
+
+      .add-to-cart-button {
+        margin-left: 5px !important;
+      }
+
+      .card:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .card:hover {
+        transform: scaleX(1.1);
+      }
+
+      .card .card-title {
+        font-size: 20px;
+      }
+
+      .card .card-content {
+        margin: 20px 0;
+        max-width: 85%;
+      }
+
+      .card .card-link {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background: var(--red);
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: background 0.2s;
+      }
+
+      .card:hover .card-link {
+        background: var(--darkred);
+      }
+
+      .cards::-webkit-scrollbar {
+        height: 12px;
+      }
+
+      .cards::-webkit-scrollbar-thumb,
+      .cards::-webkit-scrollbar-track {
+        border-radius: 92px;
+      }
+
+      .cards::-webkit-scrollbar-thumb {
+        background: rgb(0, 0, 0);
+      }
+
+      .cards::-webkit-scrollbar-track {
+        background-color: #7d7d7d;
+      }
+      @media (min-width: 300px) {
+        .card {
+          flex-basis: 75%;
+        }
+        .card-image {
+          height: 18rem;
+          width: 100%;
+        }
+        .cards {
+          gap: 14px !important;
+        }
+      }
+    </style>
+  </body>
+</html>
